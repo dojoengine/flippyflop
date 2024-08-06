@@ -3,8 +3,8 @@ version = 1
 
 [[package]]
 name = "dojo"
-version = "0.7.3"
-source = "git+https://github.com/dojoengine/dojo?tag=v1.0.0-alpha.4#d08c46191fc1b4c4f90816cef4787cb8db02988f"
+version = "1.0.0-alpha.4"
+source = "git+https://github.com/dojoengine/dojo#1c0e8cc17e0c6e3fd4cc0d3e0826f19cff674740"
 dependencies = [
  "dojo_plugin",
 ]
@@ -15,7 +15,7 @@ version = "0.7.3"
 source = "git+https://github.com/dojoengine/dojo?rev=71b1f1a4#71b1f1a467534cbeeb901356f41e612ed4187bd1"
 
 [[package]]
-name = "dojo_starter"
+name = "flippyflop"
 version = "0.1.0"
 dependencies = [
  "dojo",
