@@ -2,6 +2,7 @@ use starknet::ContractAddress;
 
 #[derive(Serde, Copy, Drop)]
 #[dojo::model]
+#[dojo::event]
 pub struct Tile {
     #[key]
     pub x: u32,

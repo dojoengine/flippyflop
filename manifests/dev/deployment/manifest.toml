@@ -1,17 +1,17 @@
 [world]
 kind = "WorldContract"
-class_hash = "0x14287624e97e0312d4e680e19071efce983810e909b32afc54cd9c8031f4c1c"
-original_class_hash = "0x14287624e97e0312d4e680e19071efce983810e909b32afc54cd9c8031f4c1c"
+class_hash = "0x2a53b732aa4f9dfc506f62addd7423ebc6fe8554b935c55bfd55be4f033a053"
+original_class_hash = "0x2a53b732aa4f9dfc506f62addd7423ebc6fe8554b935c55bfd55be4f033a053"
 abi = "manifests/dev/deployment/abis/dojo-world.json"
-address = "0x79b4d9a854592a979c7fb5a8ebecffead539ee893278757c72bdf57c72faf5d"
-transaction_hash = "0x4b5d0e4554db8b9cd165d4907086348c838d7f5b122918cdfb5a9071634ad7d"
+address = "0x678d2dbb97c627a10df6cfb93ea5301ced8811f1c927599732fb8da6db112e2"
+transaction_hash = "0x6ca96256a948e6ea71d856b1e2f3ff97bc9965cfe1718a7a2800eb2a2670588"
 block_number = 3
 seed = "flippyflop"
 manifest_name = "dojo-world"
 
 [world.metadata]
 profile_name = "dev"
-rpc_url = "http://localhost:5050/"
+rpc_url = "https://api.cartridge.gg/x/starknet/sepolia"
 
 [base]
 kind = "Class"
@@ -23,13 +23,13 @@ manifest_name = "dojo-base"
 
 [[contracts]]
 kind = "DojoContract"
-address = "0x6ca9e387f5e35c90d8e16a5b2ed73e4a1b256aca68e0449eba67c3bdf1dc88e"
-class_hash = "0x6b75d292266b31ab30a8b713a0a988d52379c2bdde4b63e9cfb8d6d51fc77b7"
-original_class_hash = "0x6b75d292266b31ab30a8b713a0a988d52379c2bdde4b63e9cfb8d6d51fc77b7"
+address = "0x22e674ab959f1315ca3dbba2d8a764e5e9e39ed0eaafe2b3739ca1722e2531e"
+class_hash = "0x24960c72dd6fb3d8236a475f0f087744c4007ec5da1ceb174fb63147e265a7a"
+original_class_hash = "0x24960c72dd6fb3d8236a475f0f087744c4007ec5da1ceb174fb63147e265a7a"
 base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
 abi = "manifests/dev/deployment/abis/contracts/flippyflop-actions-4407e5f5.json"
 reads = []
-writes = []
+writes = ["flippyflop-Tile"]
 computed = []
 init_calldata = []
 tag = "flippyflop-actions"

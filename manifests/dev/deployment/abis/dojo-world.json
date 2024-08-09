@@ -313,6 +313,26 @@
       },
       {
         "type": "function",
+        "name": "entity_lobotomized",
+        "inputs": [
+          {
+            "name": "model_selector",
+            "type": "core::felt252"
+          },
+          {
+            "name": "entity_id",
+            "type": "core::felt252"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::felt252"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
         "name": "entity",
         "inputs": [
           {
@@ -354,6 +374,30 @@
           {
             "name": "layout",
             "type": "dojo::model::layout::Layout"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "set_entity_lobotomized",
+        "inputs": [
+          {
+            "name": "model_selector",
+            "type": "core::felt252"
+          },
+          {
+            "name": "keys",
+            "type": "core::array::Span::<core::felt252>"
+          },
+          {
+            "name": "entity_id",
+            "type": "core::felt252"
+          },
+          {
+            "name": "value",
+            "type": "core::felt252"
           }
         ],
         "outputs": [],
