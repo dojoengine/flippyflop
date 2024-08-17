@@ -1,17 +1,17 @@
 [world]
 kind = "WorldContract"
-class_hash = "0x2a53b732aa4f9dfc506f62addd7423ebc6fe8554b935c55bfd55be4f033a053"
-original_class_hash = "0x2a53b732aa4f9dfc506f62addd7423ebc6fe8554b935c55bfd55be4f033a053"
+class_hash = "0x215f0e85953fb8a60ac54211eaa2368eaa5cda3427ca4eeb17078099d09a43d"
+original_class_hash = "0x215f0e85953fb8a60ac54211eaa2368eaa5cda3427ca4eeb17078099d09a43d"
 abi = "manifests/dev/deployment/abis/dojo-world.json"
-address = "0x678d2dbb97c627a10df6cfb93ea5301ced8811f1c927599732fb8da6db112e2"
-transaction_hash = "0x6ca96256a948e6ea71d856b1e2f3ff97bc9965cfe1718a7a2800eb2a2670588"
+address = "0x1ca8e3b7bc101ffd443a1e3b452a4f49607841461b168cb2cc365322722b67"
+transaction_hash = "0xbf63131ca74cb8d3edac57de7678de1b49e649c6aeb5fc92ee4898446dd60"
 block_number = 3
 seed = "flippyflop"
 manifest_name = "dojo-world"
 
 [world.metadata]
 profile_name = "dev"
-rpc_url = "https://api.cartridge.gg/x/starknet/sepolia"
+rpc_url = "http://localhost:5050/"
 
 [base]
 kind = "Class"
@@ -23,14 +23,13 @@ manifest_name = "dojo-base"
 
 [[contracts]]
 kind = "DojoContract"
-address = "0x22e674ab959f1315ca3dbba2d8a764e5e9e39ed0eaafe2b3739ca1722e2531e"
-class_hash = "0x24960c72dd6fb3d8236a475f0f087744c4007ec5da1ceb174fb63147e265a7a"
-original_class_hash = "0x24960c72dd6fb3d8236a475f0f087744c4007ec5da1ceb174fb63147e265a7a"
+address = "0x6dc710c0589d8ceb1a924c6632f4c9a8623f85c38a7e0cbed845157727b9b54"
+class_hash = "0x70d01a0eed4c6d3eb05a19dc37bb2b0660b819a4f3be1537a957d9bc45da3c"
+original_class_hash = "0x70d01a0eed4c6d3eb05a19dc37bb2b0660b819a4f3be1537a957d9bc45da3c"
 base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
 abi = "manifests/dev/deployment/abis/contracts/flippyflop-actions-4407e5f5.json"
 reads = []
 writes = ["flippyflop-Tile"]
-computed = []
 init_calldata = []
 tag = "flippyflop-actions"
 manifest_name = "flippyflop-actions-4407e5f5"
@@ -56,4 +55,32 @@ key = true
 [[models.members]]
 name = "flipped"
 type = "felt252"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x3b76de62f8e30048590802eb9b8a74235bc6456dcdf04d086df0321ff91c909"
+original_class_hash = "0x3b76de62f8e30048590802eb9b8a74235bc6456dcdf04d086df0321ff91c909"
+abi = "manifests/dev/deployment/abis/models/flippyflop-User-25ca4606.json"
+tag = "flippyflop-User"
+manifest_name = "flippyflop-User-25ca4606"
+
+[[models.members]]
+name = "identity"
+type = "ContractAddress"
+key = true
+
+[[models.members]]
+name = "last_message"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "hovering_tile_x"
+type = "u32"
+key = false
+
+[[models.members]]
+name = "hovering_tile_y"
+type = "u32"
 key = false

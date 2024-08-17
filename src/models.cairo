@@ -10,3 +10,14 @@ pub struct Tile {
     pub y: u32,
     pub flipped: felt252,
 }
+
+#[derive(Serde, Drop)]
+#[dojo::model]
+pub struct User {
+    #[key]
+    pub identity: ContractAddress,
+    pub last_message: ByteArray,
+    pub hovering_tile_x: u32,
+    pub hovering_tile_y: u32,
+}
+
