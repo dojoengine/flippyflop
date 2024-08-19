@@ -47,7 +47,10 @@ mod actions {
             let y: u32 = ((hash / 100) % 100).try_into().unwrap();
 
             let entity_hash = poseidon_hash_span(array![x.into(), y.into()].span());
-            world.delete_entity_lobotomized(TILE_MODEL_SELECTOR, entity_hash);
+            world
+                .set_entity_lobotomized(
+                    TILE_MODEL_SELECTOR, array![x.into(), y.into()].span(), entity_hash, 0
+                );
         }
     }
 }
