@@ -1,7 +1,7 @@
 kind = "DojoModel"
 class_hash = "0x7824b845296994a22d3df72db34fdea9f7aeec2fb0487459a07574ffe57549e"
 original_class_hash = "0x7824b845296994a22d3df72db34fdea9f7aeec2fb0487459a07574ffe57549e"
-abi = "manifests/dev/base/abis/models/flippyflop-Tile-61fb9291.json"
+abi = "manifests/sepolia/base/abis/models/flippyflop-Tile-61fb9291.json"
 tag = "flippyflop-Tile"
 qualified_path = "flippyflop::models::tile"
 manifest_name = "flippyflop-Tile-61fb9291"

@@ -18,3 +18,6 @@ dojo = { path = "/Users/nasr/Documents/development.nosync/dojo/crates/dojo-core"
 
 [tool.dojo]
 initializer_class_hash = "0xbeef"
+
+[profile.dev]
+[profile.sepolia]

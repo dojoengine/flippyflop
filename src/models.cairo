@@ -20,4 +20,3 @@ pub struct User {
     pub hovering_tile_x: u32,
     pub hovering_tile_y: u32,
 }
-

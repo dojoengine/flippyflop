@@ -1,7 +1,7 @@
 kind = "DojoModel"
 class_hash = "0x3b76de62f8e30048590802eb9b8a74235bc6456dcdf04d086df0321ff91c909"
 original_class_hash = "0x3b76de62f8e30048590802eb9b8a74235bc6456dcdf04d086df0321ff91c909"
-abi = "manifests/dev/base/abis/models/flippyflop-User-25ca4606.json"
+abi = "manifests/sepolia/base/abis/models/flippyflop-User-25ca4606.json"
 tag = "flippyflop-User"
 qualified_path = "flippyflop::models::user"
 manifest_name = "flippyflop-User-25ca4606"
