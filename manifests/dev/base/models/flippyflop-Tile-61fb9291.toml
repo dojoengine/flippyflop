@@ -1,6 +1,6 @@
 kind = "DojoModel"
-class_hash = "0x7824b845296994a22d3df72db34fdea9f7aeec2fb0487459a07574ffe57549e"
-original_class_hash = "0x7824b845296994a22d3df72db34fdea9f7aeec2fb0487459a07574ffe57549e"
+class_hash = "0x4a4abfcb39d8c9935eaf1c96eda1ee3df8d448992e11a58fb3bc62821a14d20"
+original_class_hash = "0x4a4abfcb39d8c9935eaf1c96eda1ee3df8d448992e11a58fb3bc62821a14d20"
 abi = "manifests/dev/base/abis/models/flippyflop-Tile-61fb9291.json"
 tag = "flippyflop-Tile"
 qualified_path = "flippyflop::models::tile"

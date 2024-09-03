@@ -1,30 +1,42 @@
 use starknet::ContractAddress;
 
-#[derive(Serde, Copy, Drop, PartialEq)]
+#[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum PowerUp {
     None: (),
     Empty: (),
     Multiplier: u8,
 }
 
-impl PowerUpImpl of PowerUp {
+trait PowerUpTrait {
+    fn probability(self: PowerUp) -> u32;
+}
+
+impl PowerUpImpl of PowerUpTrait {
     fn probability(self: PowerUp) -> u32 {
         match self {
-            PowerUp::None => 9900,    // 99.00%
-            PowerUp::Empty => 50,     // 0.50%
-            PowerUp::Multiplier(2) => 30,  // 0.30%
-            PowerUp::Multiplier(4) => 20,   // 0.20%
-            PowerUp::Multiplier(8) => 10,   // 0.10%
-            PowerUp::Multiplier(16) => 3,  // 0.05%
-            PowerUp::Multiplier(32) => 1,  // 0.01%
-            PowerUp::Multiplier(_) => 0,   // Invalid multiplier
+            PowerUp::None => 990000,    // 99.0000%
+            PowerUp::Empty => 5000,     // 0.5000%
+            PowerUp::Multiplier(val) => {
+                if val == 2 {
+                    4000  // 0.4000%
+                } else if val == 4 {
+                    800   // 0.0800%
+                } else if val == 8 {
+                    160   // 0.0160%
+                } else if val == 16 {
+                    32    // 0.0032%
+                } else if val == 32 {
+                    6     // 0.0006%
+                } else {
+                    0     // Invalid multiplier
+                }
+            },
         }
     }
 }
 
 #[derive(Serde, Copy, Drop)]
 #[dojo::model]
-#[dojo::event]
 pub struct Tile {
     #[key]
     pub x: u32,

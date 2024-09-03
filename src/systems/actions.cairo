@@ -11,20 +11,21 @@ const TILE_FLIPPED_SELECTOR: felt252 =
     0x1cc1e903b2099cf12a3c9efcefe94e8820db24825120dfb35aa6c519a16b10e;
 const X_BOUND: u32 = 100;
 const Y_BOUND: u32 = 100;
-const ADDRESS_BITMAP: felt252 = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000;
+const ADDRESS_BITMAP: u256 = 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000_u256;
 
 // dojo decorator
 #[dojo::contract]
 mod actions {
-    use super::{IActions, TILE_MODEL_SELECTOR, TILE_FLIPPED_SELECTOR, X_BOUND, Y_BOUND};
+    use super::{IActions, TILE_MODEL_SELECTOR, TILE_FLIPPED_SELECTOR, X_BOUND, Y_BOUND, ADDRESS_BITMAP};
     use starknet::{ContractAddress, get_caller_address, info::get_tx_info};
-    use flippyflop::models::{Tile, PowerUp};
+    use flippyflop::models::{Tile, PowerUp, PowerUpTrait};
     use core::poseidon::poseidon_hash_span;
     use dojo::model::{FieldLayout, Layout};
 
     fn get_random_powerup(seed: felt252) -> PowerUp {
         let tx_hash = get_tx_info().transaction_hash;
-        let random_value = poseidon_hash_span(array![seed, tx_hash].span()) % 10000;
+        let hash: u256 = poseidon_hash_span(array![seed, tx_hash].span()).into();
+        let random_value: u32 = (hash % 10000).try_into().unwrap();
         
         if random_value < PowerUp::Multiplier(32).probability() {
             PowerUp::Multiplier(32)
@@ -43,26 +44,27 @@ mod actions {
         }
     }
 
-    fn pack_flipped_data(address: ContractAddress, powerup: PowerUp) -> felt252 {
-        let address_bits: felt252 = address.into();
+    fn pack_flipped_data(address: felt252, powerup: PowerUp) -> felt252 {
+        let address_bits: u256 = address.into();
         let (powerup_type, powerup_data) = match powerup {
-            PowerUp::None => (0, 0),
-            PowerUp::Empty => (1, 0),
-            PowerUp::Multiplier(value) => (2, value.into()),
+            PowerUp::None => (0_u256, 0_u256),
+            PowerUp::Empty => (1_u256, 0_u256),
+            PowerUp::Multiplier(multiplier) => (2_u256, multiplier.into()),
         };
         
-        let mut packed: felt252 = 0;
-        packed = packed | (address_bits & ADDRESS_BITMAP); // 244 bits for address
-        packed = packed | ((powerup_type.into() & 0xF) * 16); // 4 bits for powerup type
-        packed = packed | (powerup_data & 0xF); // 4 bits for powerup data
+        let mut packed: u256 = 0_u256;
+        packed = packed | (address_bits & ADDRESS_BITMAP);
+        packed = packed | ((powerup_type & 0xF_u256) * 16_u256);
+        packed = packed | (powerup_data & 0xF_u256);
         
-        packed
+        packed.try_into().unwrap()
     }
 
     fn unpack_flipped_data(flipped: felt252) -> (ContractAddress, PowerUp) {
-        let address: ContractAddress = (flipped & ADDRESS_BITMAP).try_into().unwrap();
-        let powerup_type = (flipped & 0xF0) / 16;
-        let powerup_data = flipped & 0xF;
+        let flipped_u256: u256 = flipped.into();
+        let address: felt252 = (flipped_u256 & ADDRESS_BITMAP).try_into().unwrap();
+        let powerup_type: felt252 = ((flipped_u256 & 0xF0_u256) / 16_u256).try_into().unwrap();
+        let powerup_data = flipped_u256 & 0xF_u256;
         
         let powerup = match powerup_type {
             0 => PowerUp::None,
@@ -71,7 +73,7 @@ mod actions {
             _ => PowerUp::None,
         };
         
-        (address, powerup)
+        (address.try_into().unwrap(), powerup)
     }
     
     #[abi(embed_v0)]
@@ -88,7 +90,7 @@ mod actions {
             assert!(tile == 0, "Tile already flipped");
 
             let powerup = get_random_powerup(hash);
-            let packed_data = pack_flipped_data(player, powerup);
+            let packed_data = pack_flipped_data(player.into(), powerup);
 
             world
                 .set_entity_lobotomized(
