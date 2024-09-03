@@ -9,8 +9,6 @@ const TILE_MODEL_SELECTOR: felt252 =
     0x61fb9291a47fbce6a74257be2400d0f807067fd73e6437aa3f7461c38153492;
 const TILE_FLIPPED_SELECTOR: felt252 =
     0x1cc1e903b2099cf12a3c9efcefe94e8820db24825120dfb35aa6c519a16b10e;
-const X_BOUND: u32 = 1000;
-const Y_BOUND: u32 = 1000;
 
 // dojo decorator
 #[dojo::contract]
@@ -25,9 +23,6 @@ mod actions {
     impl ActionsImpl of IActions<ContractState> {
         // Humans can only flip unflipped tiles, but they can chose their tile to unflip.
         fn flip(ref world: IWorldDispatcher, x: u32, y: u32) {
-            assert!(x < X_BOUND, "x out of bounds");
-            assert!(y < Y_BOUND, "y out of bounds");
-
             let player = get_caller_address();
             let hash = poseidon_hash_span(array![x.into(), y.into()].span());
             let tile = world.entity_lobotomized(TILE_MODEL_SELECTOR, hash);
@@ -41,15 +36,15 @@ mod actions {
         }
 
         // Bots can unflip any tiles, but we randomly chose the tile to flip.
-        fn flop(ref world: IWorldDispatcher) {
+        fn flop(ref world: IWorldDispatcher, bounds: (u32, u32)) {
             let evil_address = get_caller_address();
             let nonce = get_tx_info().nonce;
 
             let hash: u256 = poseidon_hash_span(array![evil_address.into(), nonce.into()].into())
                 .into();
 
-            let x: u32 = (hash % X_BOUND.into()).try_into().unwrap();
-            let y: u32 = ((hash / Y_BOUND.into()) % Y_BOUND.into()).try_into().unwrap();
+            let x: u32 = (hash % bounds.0.into()).try_into().unwrap();
+            let y: u32 = ((hash / bounds.1.into()) % bounds.1.into()).try_into().unwrap();
 
             let entity_hash = poseidon_hash_span(array![x.into(), y.into()].span());
             world
