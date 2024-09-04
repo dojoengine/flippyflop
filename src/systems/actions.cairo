@@ -134,9 +134,9 @@ mod actions {
         }
 
         fn claim(ref world: IWorldDispatcher) {
+            // Game must be locked
             let game = get!(world, GAME_ID, Game);
-            assert!(game.is_locked == false, "Game is locked");
-
+            assert!(game.is_locked, "Game is not locked");
 
             let player = get_caller_address();
             let flip_token = flip_token(world);
