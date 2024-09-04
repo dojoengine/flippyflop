@@ -5,4 +5,4 @@ pub const POWERUP_MASK: u256 = 0xFF00;
 pub const POWERUP_DATA_MASK: u256 = 0x00FF;
 
 pub const TILE_MODEL_SELECTOR: felt252 = selector_from_tag!("flippyflop-Tile");
-pub const GAME_ID: felt252 = 0x0;
+pub const GAME_ID: u32 = 0x0;

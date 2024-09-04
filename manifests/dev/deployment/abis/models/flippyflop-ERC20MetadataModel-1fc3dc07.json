@@ -363,34 +363,52 @@
   },
   {
     "type": "impl",
-    "name": "userImpl",
-    "interface_name": "flippyflop::models::Iuser"
+    "name": "erc_20_metadata_modelImpl",
+    "interface_name": "origami_token::components::token::erc20::erc20_metadata::Ierc_20_metadata_model"
   },
   {
     "type": "struct",
-    "name": "flippyflop::models::User",
+    "name": "core::integer::u256",
     "members": [
       {
-        "name": "identity",
+        "name": "low",
+        "type": "core::integer::u128"
+      },
+      {
+        "name": "high",
+        "type": "core::integer::u128"
+      }
+    ]
+  },
+  {
+    "type": "struct",
+    "name": "origami_token::components::token::erc20::erc20_metadata::ERC20MetadataModel",
+    "members": [
+      {
+        "name": "token",
         "type": "core::starknet::contract_address::ContractAddress"
       },
       {
-        "name": "last_message",
+        "name": "name",
         "type": "core::byte_array::ByteArray"
       },
       {
-        "name": "hovering_tile_x",
-        "type": "core::integer::u32"
+        "name": "symbol",
+        "type": "core::byte_array::ByteArray"
       },
       {
-        "name": "hovering_tile_y",
-        "type": "core::integer::u32"
+        "name": "decimals",
+        "type": "core::integer::u8"
+      },
+      {
+        "name": "total_supply",
+        "type": "core::integer::u256"
       }
     ]
   },
   {
     "type": "interface",
-    "name": "flippyflop::models::Iuser",
+    "name": "origami_token::components::token::erc20::erc20_metadata::Ierc_20_metadata_model",
     "items": [
       {
         "type": "function",
@@ -398,7 +416,7 @@
         "inputs": [
           {
             "name": "model",
-            "type": "flippyflop::models::User"
+            "type": "origami_token::components::token::erc20::erc20_metadata::ERC20MetadataModel"
           }
         ],
         "outputs": [],
@@ -408,7 +426,7 @@
   },
   {
     "type": "event",
-    "name": "flippyflop::models::user::Event",
+    "name": "origami_token::components::token::erc20::erc20_metadata::erc_20_metadata_model::Event",
     "kind": "enum",
     "variants": []
   }

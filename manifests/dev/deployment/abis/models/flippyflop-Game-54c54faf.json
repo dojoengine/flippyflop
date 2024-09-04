@@ -363,34 +363,40 @@
   },
   {
     "type": "impl",
-    "name": "userImpl",
-    "interface_name": "flippyflop::models::Iuser"
+    "name": "gameImpl",
+    "interface_name": "flippyflop::models::Igame"
+  },
+  {
+    "type": "enum",
+    "name": "core::bool",
+    "variants": [
+      {
+        "name": "False",
+        "type": "()"
+      },
+      {
+        "name": "True",
+        "type": "()"
+      }
+    ]
   },
   {
     "type": "struct",
-    "name": "flippyflop::models::User",
+    "name": "flippyflop::models::Game",
     "members": [
       {
-        "name": "identity",
-        "type": "core::starknet::contract_address::ContractAddress"
-      },
-      {
-        "name": "last_message",
-        "type": "core::byte_array::ByteArray"
-      },
-      {
-        "name": "hovering_tile_x",
+        "name": "id",
         "type": "core::integer::u32"
       },
       {
-        "name": "hovering_tile_y",
-        "type": "core::integer::u32"
+        "name": "is_locked",
+        "type": "core::bool"
       }
     ]
   },
   {
     "type": "interface",
-    "name": "flippyflop::models::Iuser",
+    "name": "flippyflop::models::Igame",
     "items": [
       {
         "type": "function",
@@ -398,7 +404,7 @@
         "inputs": [
           {
             "name": "model",
-            "type": "flippyflop::models::User"
+            "type": "flippyflop::models::Game"
           }
         ],
         "outputs": [],
@@ -408,7 +414,7 @@
   },
   {
     "type": "event",
-    "name": "flippyflop::models::user::Event",
+    "name": "flippyflop::models::game::Event",
     "kind": "enum",
     "variants": []
   }

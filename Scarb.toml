@@ -17,8 +17,6 @@ origami_token = { git = "https://github.com/Larkooo/origami" }
 
 [[target.dojo]]
 
-[tool.dojo]
-
 build-external-contracts = [
     "origami_token::components::security::initializable::initializable_model",
     "origami_token::components::token::erc20::erc20_metadata::erc_20_metadata_model",

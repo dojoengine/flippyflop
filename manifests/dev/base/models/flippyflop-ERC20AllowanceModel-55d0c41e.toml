@@ -1,9 +1,9 @@
 kind = "DojoModel"
-class_hash = "0x223db7359762f6103fbdf6e05b5756c3a1a1daa8d80c782894ee506c6293491"
-original_class_hash = "0x223db7359762f6103fbdf6e05b5756c3a1a1daa8d80c782894ee506c6293491"
+class_hash = "0x491a48fb74ba9e09baa7cd0c7b518557a4c422b85bb7a72782a98ab8c89bcf2"
+original_class_hash = "0x491a48fb74ba9e09baa7cd0c7b518557a4c422b85bb7a72782a98ab8c89bcf2"
 abi = "manifests/dev/base/abis/models/flippyflop-ERC20AllowanceModel-55d0c41e.json"
 tag = "flippyflop-ERC20AllowanceModel"
-qualified_path = "flippyflop::tokens::flip::erc_20_allowance_model"
+qualified_path = "origami_token::components::token::erc20::erc20_allowance::erc_20_allowance_model"
 manifest_name = "flippyflop-ERC20AllowanceModel-55d0c41e"
 
 [[members]]

@@ -1,6 +1,0 @@
-kind = "Class"
-class_hash = "0x215f0e85953fb8a60ac54211eaa2368eaa5cda3427ca4eeb17078099d09a43d"
-original_class_hash = "0x215f0e85953fb8a60ac54211eaa2368eaa5cda3427ca4eeb17078099d09a43d"
-abi = "manifests/sepolia/base/abis/dojo-world.json"
-tag = "dojo-world"
-manifest_name = "dojo-world"

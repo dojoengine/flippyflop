@@ -1,0 +1,14 @@
+kind = "DojoContract"
+class_hash = "0x4dba281a1041e66220d62f9df916c03fc0b4c8c19014f9db368c2f5a0c15bad"
+original_class_hash = "0x4dba281a1041e66220d62f9df916c03fc0b4c8c19014f9db368c2f5a0c15bad"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/flippyflop-game-23e1ad43.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "flippyflop-game"
+systems = [
+    "lock_game",
+    "unlock_game",
+]
+manifest_name = "flippyflop-game-23e1ad43"
