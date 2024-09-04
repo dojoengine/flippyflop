@@ -1,0 +1,92 @@
+[world]
+kind = "WorldContract"
+class_hash = "0x3d5a55872f626e15bc19b25028141edf707652ccf3f7b1252d308517edd816d"
+original_class_hash = "0x3d5a55872f626e15bc19b25028141edf707652ccf3f7b1252d308517edd816d"
+abi = "manifests/dev/deployment/abis/dojo-world.json"
+address = "0x35819a8df0a85781f9d8793ea1b3163e94812d41707a21a6fb586d00e5f7a16"
+transaction_hash = "0xb1dadb96fa5c3ba9669be4dde41cf58d63557a1f685159e935a1d5fe204bab"
+block_number = 3
+seed = "flippyflop-katana"
+manifest_name = "dojo-world"
+
+[world.metadata]
+profile_name = "dev"
+rpc_url = "http://localhost:5050/"
+
+[base]
+kind = "Class"
+class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+original_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+abi = "manifests/dev/deployment/abis/dojo-base.json"
+tag = "dojo-base"
+manifest_name = "dojo-base"
+
+[[contracts]]
+kind = "DojoContract"
+address = "0x2728baa5c7de0dc4b2fd20d71b76edcfb201924f45e11a52906e1fd22293dbd"
+class_hash = "0x1de3df6c300423e55bf5a88f48c84198e2966ea9e95f7f470998ac7c59dfa51"
+original_class_hash = "0x1de3df6c300423e55bf5a88f48c84198e2966ea9e95f7f470998ac7c59dfa51"
+base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+abi = "manifests/dev/deployment/abis/contracts/flippyflop-actions-4407e5f5.json"
+reads = []
+writes = ["flippyflop-Tile"]
+init_calldata = []
+tag = "flippyflop-actions"
+systems = [
+    "flip",
+    "flop",
+]
+manifest_name = "flippyflop-actions-4407e5f5"
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x4a4abfcb39d8c9935eaf1c96eda1ee3df8d448992e11a58fb3bc62821a14d20"
+original_class_hash = "0x4a4abfcb39d8c9935eaf1c96eda1ee3df8d448992e11a58fb3bc62821a14d20"
+abi = "manifests/dev/deployment/abis/models/flippyflop-Tile-61fb9291.json"
+tag = "flippyflop-Tile"
+qualified_path = "flippyflop::models::tile"
+manifest_name = "flippyflop-Tile-61fb9291"
+
+[[models.members]]
+name = "x"
+type = "u32"
+key = true
+
+[[models.members]]
+name = "y"
+type = "u32"
+key = true
+
+[[models.members]]
+name = "flipped"
+type = "felt252"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x69a62266a511f2937f5c08976de5b8a2455acbe622bc8d6060616282832eb66"
+original_class_hash = "0x69a62266a511f2937f5c08976de5b8a2455acbe622bc8d6060616282832eb66"
+abi = "manifests/dev/deployment/abis/models/flippyflop-User-25ca4606.json"
+tag = "flippyflop-User"
+qualified_path = "flippyflop::models::user"
+manifest_name = "flippyflop-User-25ca4606"
+
+[[models.members]]
+name = "identity"
+type = "ContractAddress"
+key = true
+
+[[models.members]]
+name = "last_message"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "hovering_tile_x"
+type = "u32"
+key = false
+
+[[models.members]]
+name = "hovering_tile_y"
+type = "u32"
+key = false
