@@ -15,7 +15,7 @@ mod actions {
     use core::poseidon::poseidon_hash_span;
     use dojo::model::{FieldLayout, Layout};
     use flippyflop::tokens::flip::{IFlip, IFlipDispatcher, IFlipDispatcherTrait};
-    use flippyflop::constants::{GAME_ID, ADDRESS_BITMAP, X_BOUND, Y_BOUND, TILE_MODEL_SELECTOR};
+    use flippyflop::constants::{GAME_ID, ADDRESS_MASK, POWERUP_MASK, POWERUP_DATA_MASK, X_BOUND, Y_BOUND, TILE_MODEL_SELECTOR};
 
     fn get_random_powerup(seed: felt252) -> PowerUp {
         let tx_hash = get_tx_info().transaction_hash;
@@ -48,18 +48,18 @@ mod actions {
         };
         
         let mut packed: u256 = 0_u256;
-        packed = packed | (address_bits & ADDRESS_BITMAP);
-        packed = packed | ((powerup_type * 256_u256) & 0xFF00_u256);
-        packed = packed | (powerup_data & 0x00FF_u256);
+        packed = packed | (address_bits & ADDRESS_MASK);
+        packed = packed | ((powerup_type * 256_u256) & POWERUP_MASK);
+        packed = packed | (powerup_data & POWERUP_DATA_MASK);
         
         packed.try_into().unwrap()
     }
 
     fn unpack_flipped_data(flipped: felt252) -> (ContractAddress, PowerUp) {
         let flipped_u256: u256 = flipped.into();
-        let address: felt252 = (flipped_u256 & ADDRESS_BITMAP).try_into().unwrap();
-        let powerup_type: felt252 = ((flipped_u256 & 0xFF00_u256) / 256_u256).try_into().unwrap();
-        let powerup_data = flipped_u256 & 0x00FF_u256;
+        let address: felt252 = (flipped_u256 & ADDRESS_MASK).try_into().unwrap();
+        let powerup_type: felt252 = ((flipped_u256 & POWERUP_MASK) / 256_u256).try_into().unwrap();
+        let powerup_data = flipped_u256 & POWERUP_DATA_MASK;
         
         let powerup = match powerup_type {
             0 => PowerUp::None,
