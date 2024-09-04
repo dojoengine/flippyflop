@@ -1,0 +1,15 @@
+kind = "DojoContract"
+class_hash = "0x67f7dac6218b32160697eabc6c2bf2f2781675917924b8fdc179dcb73c3a0d3"
+original_class_hash = "0x67f7dac6218b32160697eabc6c2bf2f2781675917924b8fdc179dcb73c3a0d3"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/flippyflop-flip-5ba18c69.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "flippyflop-flip"
+systems = [
+    "initializer",
+    "mint_from",
+    "burn_from",
+]
+manifest_name = "flippyflop-flip-5ba18c69"

@@ -17,6 +17,7 @@ seed = "flippyflop-katana"
 
 [namespace]
 default = "flippyflop"
+mappings = { "origami_token" = "flippyflop" }
 
 [socials]
 x = "https://x.com/ohayo_dojo"

@@ -18,4 +18,13 @@ name = "flippyflop"
 version = "0.1.0"
 dependencies = [
  "dojo",
+ "origami_token",
+]
+
+[[package]]
+name = "origami_token"
+version = "1.0.0-alpha.8"
+source = "git+https://github.com/Larkooo/origami#413f24299e80c0808f67efaae968ab09068cdebe"
+dependencies = [
+ "dojo",
 ]

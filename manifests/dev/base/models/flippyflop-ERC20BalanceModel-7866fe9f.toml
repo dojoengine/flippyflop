@@ -1,0 +1,22 @@
+kind = "DojoModel"
+class_hash = "0x1c458889070338bf994106b5e95a3647a20fcf9d44887ffdaf5f7eb4c0e7173"
+original_class_hash = "0x1c458889070338bf994106b5e95a3647a20fcf9d44887ffdaf5f7eb4c0e7173"
+abi = "manifests/dev/base/abis/models/flippyflop-ERC20BalanceModel-7866fe9f.json"
+tag = "flippyflop-ERC20BalanceModel"
+qualified_path = "flippyflop::tokens::flip::erc_20_balance_model"
+manifest_name = "flippyflop-ERC20BalanceModel-7866fe9f"
+
+[[members]]
+name = "token"
+type = "ContractAddress"
+key = true
+
+[[members]]
+name = "account"
+type = "ContractAddress"
+key = true
+
+[[members]]
+name = "amount"
+type = "u256"
+key = false

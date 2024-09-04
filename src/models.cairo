@@ -1,5 +1,24 @@
 use starknet::ContractAddress;
 
+#[derive(Serde, Copy, Drop)]
+#[dojo::model]
+pub struct Game {
+    #[key]
+    pub id: u32,
+    pub is_locked: bool,
+}
+
+#[derive(Serde, Copy, Drop)]
+#[dojo::model]
+pub struct Tile {
+    #[key]
+    pub x: u32,
+    #[key]
+    pub y: u32,
+    // 2**244 address | 2**4 powerup | 2**4 powerup data
+    pub flipped: felt252,
+}
+
 #[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum PowerUp {
     None: (),
@@ -14,36 +33,25 @@ trait PowerUpTrait {
 impl PowerUpImpl of PowerUpTrait {
     fn probability(self: PowerUp) -> u32 {
         match self {
-            PowerUp::None => 990000,    // 99.0000%
-            PowerUp::Empty => 5000,     // 0.5000%
+            PowerUp::None => 996858,    // 99.6858%
+            PowerUp::Empty => 1500,     // 0.1500%
             PowerUp::Multiplier(val) => {
                 if val == 2 {
-                    4000  // 0.4000%
+                    1000  // 0.1000%
                 } else if val == 4 {
-                    800   // 0.0800%
+                    500   // 0.0500%
                 } else if val == 8 {
-                    160   // 0.0160%
+                    125   // 0.0125%
                 } else if val == 16 {
-                    32    // 0.0032%
+                    12    // 0.0012%
                 } else if val == 32 {
-                    6     // 0.0006%
+                    5     // 0.0005%
                 } else {
                     0     // Invalid multiplier
                 }
             },
         }
     }
-}
-
-#[derive(Serde, Copy, Drop)]
-#[dojo::model]
-pub struct Tile {
-    #[key]
-    pub x: u32,
-    #[key]
-    pub y: u32,
-    // 2**244 address | 2**4 powerup | 2**4 powerup data
-    pub flipped: felt252,
 }
 
 #[derive(Serde, Drop)]
