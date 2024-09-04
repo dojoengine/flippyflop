@@ -18,7 +18,7 @@ fn pack_flipped_data(address: felt252, powerup: PowerUp) -> felt252 {
     packed.try_into().unwrap()
 }
 
-fn unpack_flipped_data(flipped: felt252) -> (ContractAddress, PowerUp) {
+fn unpack_flipped_data(flipped: felt252) -> (felt252, PowerUp) {
     let flipped_u256: u256 = flipped.into();
     let address: felt252 = (flipped_u256 & ADDRESS_MASK).try_into().unwrap();
     let powerup_type: felt252 = ((flipped_u256 & POWERUP_MASK) / 256_u256).try_into().unwrap();
@@ -31,5 +31,5 @@ fn unpack_flipped_data(flipped: felt252) -> (ContractAddress, PowerUp) {
         _ => PowerUp::None,
     };
     
-    (address.try_into().unwrap(), powerup)
+    (address, powerup)
 }

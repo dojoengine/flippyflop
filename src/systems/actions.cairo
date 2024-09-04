@@ -3,7 +3,7 @@
 trait IActions {
     fn flip(ref world: IWorldDispatcher, x: u32, y: u32);
     fn flop(ref world: IWorldDispatcher);
-    fn claim(ref world: IWorldDispatcher);
+    fn claim(ref world: IWorldDispatcher, flipped_tiles: Array<(u32, u32)>);
 }
 
 // dojo decorator
@@ -11,7 +11,7 @@ trait IActions {
 mod actions {
     use super::{IActions};
     use starknet::{ContractAddress, get_caller_address, info::get_tx_info};
-    use flippyflop::models::{PowerUp, PowerUpTrait, Game};
+    use flippyflop::models::{PowerUp, PowerUpTrait, Game, Claim};
     use core::poseidon::poseidon_hash_span;
     use dojo::model::{FieldLayout, Layout};
     use flippyflop::tokens::flip::{IFlip, IFlipDispatcher, IFlipDispatcherTrait};
@@ -102,54 +102,51 @@ mod actions {
             }
         }
 
-        fn claim(ref world: IWorldDispatcher) {
+        fn claim(ref world: IWorldDispatcher, flipped_tiles: Array<(u32, u32)>) {
             // Game must be locked
             let game = get!(world, GAME_ID, Game);
             assert!(game.is_locked, "Game is not locked");
 
-            let player = get_caller_address();
+            let player = get_caller_address().into();
+            let masked_player: felt252 = (player.into() & ADDRESS_MASK).try_into().unwrap();
+            
+            // Check if a Claim already exists for this player
+            let existing_claim = get!(world, (player), Claim);
+            assert!(existing_claim.amount == 0, "Claim already processed");
+
             let flip_token = flip_token(world);
             let mut total_tokens: u256 = 0;
 
-            // Iterate through all tiles
-            let mut x: u32 = 0;
+            // Iterate through the provided flipped tiles
+            let mut i = 0;
             loop {
-                if x >= X_BOUND {
+                if i >= flipped_tiles.len() {
                     break;
                 }
-                
-                let mut y: u32 = 0;
-                loop {
-                    if y >= Y_BOUND {
-                        break;
-                    }
+                let (x, y) = *flipped_tiles[i];
 
-                    let entity_hash = poseidon_hash_span(array![x.into(), y.into()].span());
-                    let tile = world.entity_lobotomized(TILE_MODEL_SELECTOR, entity_hash);
+                let entity_hash = poseidon_hash_span(array![x.into(), y.into()].span());
+                let tile = world.entity_lobotomized(TILE_MODEL_SELECTOR, entity_hash);
 
-                    // Check if the tile is flipped and belongs to the player
-                    let (tile_owner, powerup) = unpack_flipped_data(tile);
-                    if tile_owner == player {
-                        // Calculate base token amount (1 ETH in wei)
-                        let mut tokens: u256 = 1000000000000000000;
+                // Verify the tile belongs to the player
+                let (tile_owner, powerup) = unpack_flipped_data(tile);
+                assert!(tile_owner == masked_player, "Tile does not belong to the player");
 
-                        // Apply powerup multiplier if any
-                        if let PowerUp::Multiplier(multiplier) = powerup {
-                            tokens *= multiplier.into();
-                        }
+                // Calculate tokens for this tile
+                let mut tokens: u256 = 1000000000000000000; // 1 ETH in wei
 
-                        total_tokens += tokens;
-                    }
+                // Apply powerup multiplier if any
+                if let PowerUp::Multiplier(multiplier) = powerup {
+                    tokens *= multiplier.into();
+                }
 
-                    y += 1;
-                };
-
-                x += 1;
+                total_tokens += tokens;
+                i += 1;
             };
 
-            // Mint FLIP tokens to the player
+            set!(world, (Claim { player, amount: total_tokens }));
             if total_tokens > 0 {
-                flip_token.mint_from(player, total_tokens);
+                flip_token.mint_from(player.try_into().unwrap(), total_tokens);
             }
         }
     }

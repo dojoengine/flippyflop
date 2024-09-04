@@ -56,6 +56,14 @@ impl PowerUpImpl of PowerUpTrait {
 
 #[derive(Serde, Drop)]
 #[dojo::model]
+pub struct Claim {
+    #[key]
+    pub player: felt252,
+    pub amount: u256,
+}
+
+#[derive(Serde, Drop)]
+#[dojo::model]
 pub struct User {
     #[key]
     pub identity: ContractAddress,
