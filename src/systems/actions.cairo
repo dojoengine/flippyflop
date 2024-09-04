@@ -42,7 +42,7 @@ mod actions {
 
     fn flip_token(world: IWorldDispatcher) -> IFlipDispatcher {
         let (class_hash, contract_address) =
-            match world.resource(selector_from_tag!("flippyflop-FLIP")) {
+            match world.resource(selector_from_tag!("flippyflop-Flip")) {
             dojo::world::Resource::Contract((
                 class_hash, contract_address
             )) => (class_hash, contract_address),
