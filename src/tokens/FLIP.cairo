@@ -114,7 +114,7 @@ trait IFlip<TState> {
 }
 
 #[dojo::contract]
-mod flip {
+mod Flip {
     use core::num::traits::Bounded;
     use starknet::ContractAddress;
     use starknet::{get_caller_address, get_contract_address};

@@ -129,11 +129,11 @@
   {
     "type": "impl",
     "name": "IDojoInitImpl",
-    "interface_name": "flippyflop::tokens::flip::flip::IDojoInit"
+    "interface_name": "flippyflop::tokens::flip::Flip::IDojoInit"
   },
   {
     "type": "interface",
-    "name": "flippyflop::tokens::flip::flip::IDojoInit",
+    "name": "flippyflop::tokens::flip::Flip::IDojoInit",
     "items": [
       {
         "type": "function",
@@ -720,7 +720,7 @@
   },
   {
     "type": "event",
-    "name": "flippyflop::tokens::flip::flip::Event",
+    "name": "flippyflop::tokens::flip::Flip::Event",
     "kind": "enum",
     "variants": [
       {
