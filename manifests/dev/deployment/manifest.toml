@@ -24,8 +24,8 @@ manifest_name = "dojo-base"
 [[contracts]]
 kind = "DojoContract"
 address = "0x2728baa5c7de0dc4b2fd20d71b76edcfb201924f45e11a52906e1fd22293dbd"
-class_hash = "0x1de3df6c300423e55bf5a88f48c84198e2966ea9e95f7f470998ac7c59dfa51"
-original_class_hash = "0x1de3df6c300423e55bf5a88f48c84198e2966ea9e95f7f470998ac7c59dfa51"
+class_hash = "0x28bb42a86e4a38914ce1642c6566b6a102de8549d1c66216ebedcbcd6c8e107"
+original_class_hash = "0x28bb42a86e4a38914ce1642c6566b6a102de8549d1c66216ebedcbcd6c8e107"
 base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
 abi = "manifests/dev/deployment/abis/contracts/flippyflop-actions-4407e5f5.json"
 reads = []

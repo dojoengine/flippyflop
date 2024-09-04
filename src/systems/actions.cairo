@@ -54,8 +54,8 @@ mod actions {
         
         let mut packed: u256 = 0_u256;
         packed = packed | (address_bits & ADDRESS_BITMAP);
-        packed = packed | ((powerup_type * 16_u256) & 0xF0_u256);
-        packed = packed | (powerup_data & 0x0F_u256);
+        packed = packed | ((powerup_type * 256_u256) & 0xFF00_u256);
+        packed = packed | (powerup_data & 0x00FF_u256);
         
         packed.try_into().unwrap()
     }
@@ -63,8 +63,8 @@ mod actions {
     fn unpack_flipped_data(flipped: felt252) -> (ContractAddress, PowerUp) {
         let flipped_u256: u256 = flipped.into();
         let address: felt252 = (flipped_u256 & ADDRESS_BITMAP).try_into().unwrap();
-        let powerup_type: felt252 = ((flipped_u256 & 0xF0_u256) / 16_u256).try_into().unwrap();
-        let powerup_data = flipped_u256 & 0x0F_u256;
+        let powerup_type: felt252 = ((flipped_u256 & 0xFF00_u256) / 256_u256).try_into().unwrap();
+        let powerup_data = flipped_u256 & 0x00FF_u256;
         
         let powerup = match powerup_type {
             0 => PowerUp::None,

@@ -1,6 +1,6 @@
 kind = "DojoContract"
-class_hash = "0x28bb42a86e4a38914ce1642c6566b6a102de8549d1c66216ebedcbcd6c8e107"
-original_class_hash = "0x28bb42a86e4a38914ce1642c6566b6a102de8549d1c66216ebedcbcd6c8e107"
+class_hash = "0x3ea068c930a55765223e357778a6265b56b93e654d27a2849d8efe895244cf2"
+original_class_hash = "0x3ea068c930a55765223e357778a6265b56b93e654d27a2849d8efe895244cf2"
 base_class_hash = "0x0"
 abi = "manifests/dev/base/abis/contracts/flippyflop-actions-4407e5f5.json"
 reads = []
