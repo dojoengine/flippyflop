@@ -137,14 +137,14 @@
     "items": [
       {
         "type": "function",
-        "name": "lock_game",
+        "name": "lock",
         "inputs": [],
         "outputs": [],
         "state_mutability": "external"
       },
       {
         "type": "function",
-        "name": "unlock_game",
+        "name": "unlock",
         "inputs": [],
         "outputs": [],
         "state_mutability": "external"
