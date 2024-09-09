@@ -1,6 +1,6 @@
 pub const X_BOUND: u32 = 100;
 pub const Y_BOUND: u32 = 100;
-pub const ADDRESS_MASK: u256 = 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000;
+pub const ADDRESS_MASK: u256 = 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000;
 pub const POWERUP_MASK: u256 = 0xFF00;
 pub const POWERUP_DATA_MASK: u256 = 0x00FF;
 
