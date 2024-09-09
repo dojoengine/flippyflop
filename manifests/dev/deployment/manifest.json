@@ -1,8 +1,8 @@
 {
   "world": {
     "kind": "WorldContract",
-    "class_hash": "0x3d5a55872f626e15bc19b25028141edf707652ccf3f7b1252d308517edd816d",
-    "original_class_hash": "0x3d5a55872f626e15bc19b25028141edf707652ccf3f7b1252d308517edd816d",
+    "class_hash": "0x79b9624eacd7b74e31db18b10fddbd73c010b85cd1b1f56028c24bafa0b1487",
+    "original_class_hash": "0x79b9624eacd7b74e31db18b10fddbd73c010b85cd1b1f56028c24bafa0b1487",
     "abi": [
       {
         "type": "impl",
@@ -1005,6 +1005,11 @@
             "kind": "data"
           },
           {
+            "name": "entity_id",
+            "type": "core::felt252",
+            "kind": "data"
+          },
+          {
             "name": "keys",
             "type": "core::array::Span::<core::felt252>",
             "kind": "data"
@@ -1289,8 +1294,8 @@
         ]
       }
     ],
-    "address": "0x35819a8df0a85781f9d8793ea1b3163e94812d41707a21a6fb586d00e5f7a16",
-    "transaction_hash": "0xb1dadb96fa5c3ba9669be4dde41cf58d63557a1f685159e935a1d5fe204bab",
+    "address": "0x590912ee790b7f8211893544bca0742753de0729088d8f1f2e846056670c24c",
+    "transaction_hash": "0x864800688fd52f023a5abb1f2f3d1080e1343f1356b157091f30795bd9f90e",
     "block_number": 3,
     "seed": "flippyflop-katana",
     "metadata": {
@@ -1310,7 +1315,7 @@
   "contracts": [
     {
       "kind": "DojoContract",
-      "address": "0x59b976a841da5205c6129711d742382d7a3cfd1e3e03cfc62a5eb666393d5d8",
+      "address": "0x495548f90cb20886b2e910ceb6b02919db5d291098395353ac253ce4b8d0f10",
       "class_hash": "0x7c94aef06e9d76934f52e2abaa8e990dd530472a0e554ef916266acb628c946",
       "original_class_hash": "0x7c94aef06e9d76934f52e2abaa8e990dd530472a0e554ef916266acb628c946",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
@@ -2101,7 +2106,7 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x2728baa5c7de0dc4b2fd20d71b76edcfb201924f45e11a52906e1fd22293dbd",
+      "address": "0x1466f792e0394729ebfe0fc3dc8d95ff5eeabf56e0e4fc329bab60851f3bbea",
       "class_hash": "0x4b4721d434ce198b907c12463c98a0c437abbf13fc239ffe7393d0adede908",
       "original_class_hash": "0x4b4721d434ce198b907c12463c98a0c437abbf13fc239ffe7393d0adede908",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
@@ -2361,6 +2366,7 @@
       "writes": [
         "flippyflop-Tile",
         "flippyflop-Game",
+        "flippyflop-Claim",
         "flippyflop-ERC20MetadataModel",
         "flippyflop-ERC20BalanceModel",
         "flippyflop-ERC20AllowanceModel",
@@ -2378,9 +2384,9 @@
     },
     {
       "kind": "DojoContract",
-      "address": "0x15305fffbbb7c68cd216912de18257d33645c5e0a70b4f45dd12c15840355ea",
-      "class_hash": "0x4dba281a1041e66220d62f9df916c03fc0b4c8c19014f9db368c2f5a0c15bad",
-      "original_class_hash": "0x4dba281a1041e66220d62f9df916c03fc0b4c8c19014f9db368c2f5a0c15bad",
+      "address": "0x68f97643254ba8b4f111955872d22cdf840661bb8ebf0ef23d3d4b703228748",
+      "class_hash": "0x192db261dca4aa58ce197a2947f7b0af929b582fe317688f67c19941b41e1a3",
+      "original_class_hash": "0x192db261dca4aa58ce197a2947f7b0af929b582fe317688f67c19941b41e1a3",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -2521,14 +2527,14 @@
           "items": [
             {
               "type": "function",
-              "name": "lock_game",
+              "name": "lock",
               "inputs": [],
               "outputs": [],
               "state_mutability": "external"
             },
             {
               "type": "function",
-              "name": "unlock_game",
+              "name": "unlock",
               "inputs": [],
               "outputs": [],
               "state_mutability": "external"
@@ -2620,8 +2626,8 @@
       "init_calldata": [],
       "tag": "flippyflop-game",
       "systems": [
-        "lock_game",
-        "unlock_game"
+        "lock",
+        "unlock"
       ],
       "manifest_name": "flippyflop-game-23e1ad43"
     }

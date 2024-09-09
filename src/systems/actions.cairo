@@ -21,20 +21,20 @@ mod actions {
     fn get_random_powerup(seed: felt252) -> PowerUp {
         let tx_hash = get_tx_info().transaction_hash;
         let hash: u256 = poseidon_hash_span(array![seed, tx_hash].span()).into();
-        let random_value: u32 = (hash % 10000).try_into().unwrap();
+        let random_value: u32 = (hash % 1000000).try_into().unwrap();
         
-        if random_value < PowerUp::Multiplier(32).probability() {
+        if random_value < PowerUp::Multiplier(32).cumulative_probability() {
             PowerUp::Multiplier(32)
-        } else if random_value < PowerUp::Multiplier(16).probability() {
+        } else if random_value < PowerUp::Multiplier(16).cumulative_probability() {
             PowerUp::Multiplier(16)
-        } else if random_value < PowerUp::Multiplier(8).probability() {
+        } else if random_value < PowerUp::Multiplier(8).cumulative_probability() {
             PowerUp::Multiplier(8)
-        } else if random_value < PowerUp::Multiplier(4).probability() {
+        } else if random_value < PowerUp::Multiplier(4).cumulative_probability() {
             PowerUp::Multiplier(4)
-        } else if random_value < PowerUp::Multiplier(2).probability() {
+        } else if random_value < PowerUp::Multiplier(2).cumulative_probability() {
             PowerUp::Multiplier(2)
-        } else if random_value < PowerUp::Empty.probability() {
-            PowerUp::Empty
+        } else if random_value < PowerUp::Lock.cumulative_probability() {
+            PowerUp::Lock
         } else {
             PowerUp::None
         }

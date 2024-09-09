@@ -22,32 +22,32 @@ pub struct Tile {
 #[derive(Serde, Copy, Drop, Introspect, PartialEq)]
 enum PowerUp {
     None: (),
-    Empty: (),
+    Lock: (),
     Multiplier: u8,
 }
 
 trait PowerUpTrait {
-    fn probability(self: PowerUp) -> u32;
+    fn cumulative_probability(self: PowerUp) -> u32;
 }
 
 impl PowerUpImpl of PowerUpTrait {
-    fn probability(self: PowerUp) -> u32 {
+    fn cumulative_probability(self: PowerUp) -> u32 {
         match self {
-            PowerUp::None => 996858,    // 99.6858%
-            PowerUp::Empty => 1500,     // 0.1500%
+            PowerUp::None => 1000000, // 100% (cumulative)
+            PowerUp::Lock => 3142,    // 0.1642 + 0.1500 = 0.3142% (cumulative)
             PowerUp::Multiplier(val) => {
                 if val == 2 {
-                    1000  // 0.1000%
+                    1642 // 0.0642% + 0.1000% = 0.1642% (cumulative)
                 } else if val == 4 {
-                    500   // 0.0500%
+                    642 // 0.0142% + 0.0500% = 0.0642% (cumulative)
                 } else if val == 8 {
-                    125   // 0.0125%
+                    142 // 0.0017% + 0.0125% = 0.0142% (cumulative)
                 } else if val == 16 {
-                    12    // 0.0012%
+                    17 // 0.0005% + 0.0012% = 0.0017% (cumulative)
                 } else if val == 32 {
-                    5     // 0.0005%
+                    5 // 0.0005%
                 } else {
-                    0     // Invalid multiplier
+                    0
                 }
             },
         }

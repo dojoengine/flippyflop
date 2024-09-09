@@ -6,7 +6,7 @@ fn pack_flipped_data(address: felt252, powerup: PowerUp) -> felt252 {
     let address_bits: u256 = address.into();
     let (powerup_type, powerup_data) = match powerup {
         PowerUp::None => (0_u256, 0_u256),
-        PowerUp::Empty => (1_u256, 0_u256),
+        PowerUp::Lock => (1_u256, 0_u256),
         PowerUp::Multiplier(multiplier) => (2_u256, multiplier.into()),
     };
     
@@ -26,7 +26,7 @@ fn unpack_flipped_data(flipped: felt252) -> (felt252, PowerUp) {
     
     let powerup = match powerup_type {
         0 => PowerUp::None,
-        1 => PowerUp::Empty,
+        1 => PowerUp::Lock,
         2 => PowerUp::Multiplier(powerup_data.try_into().unwrap()),
         _ => PowerUp::None,
     };
