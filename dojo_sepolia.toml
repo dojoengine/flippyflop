@@ -5,7 +5,7 @@ account_address = "0xb3ff441a68610b30fd5e2abbf3a1548eb6ba6f3559f2862bf2dc757e582
 private_key = "0x2bbf4f9fd0bbb2e60b0316c1fe0b76cf7a4d0198bd493ced9b8df2a3a24d68a"
 #world_address = "0x1ca8e3b7bc101ffd443a1e3b452a4f49607841461b168cb2cc365322722b67"   # Uncomment and update this line with your world address.
 #world_address = "0x025Ee38b230906EA41B00401cC12bb51f58DC62198cf058a336655696908863D"
-world_address = "0x646b1ab8ec4c75c713ad961d864f42eb9a2c5ae4844c0613f9d1fea0e484616"
+world_address = "0x3c542d498c799e1e8f6f7531c9c0a7ad72edd12fbc85cdcaeacbe572c3674d1"
 
 [world]
 name = "Flippy Flop"
