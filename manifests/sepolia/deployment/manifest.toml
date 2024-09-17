@@ -3,9 +3,9 @@ kind = "WorldContract"
 class_hash = "0x79b9624eacd7b74e31db18b10fddbd73c010b85cd1b1f56028c24bafa0b1487"
 original_class_hash = "0x79b9624eacd7b74e31db18b10fddbd73c010b85cd1b1f56028c24bafa0b1487"
 abi = "manifests/sepolia/deployment/abis/dojo-world.json"
-address = "0x53b7efae79ce1d7729828bb6dee2cee09358fde4c4325805cf97678919a4855"
-transaction_hash = "0x419275da6b0ae52484b1face9f6cd4ebdb0ccda8c57d8a2323ddeb5c7981998"
-seed = "flippyflop-sepolia"
+address = "0x43cba5bc94f3ec38aee9841c8c45edf899e77ac944a88eb732b36ef3a4c2ca2"
+transaction_hash = "0x43ae789ebbf3973bef4aa8a61e4233b97e4260c757c902af94a9b9159ed3f47"
+seed = "flippyflop-sepolia-256"
 manifest_name = "dojo-world"
 
 [world.metadata]
@@ -22,7 +22,7 @@ manifest_name = "dojo-base"
 
 [[contracts]]
 kind = "DojoContract"
-address = "0x61f08f2b83a5dd9d972d4de8719a6c2561fb1205a51ae70f9ac6f4a1bb6aca7"
+address = "0x30b61048bed5ff383919c6bdb5c3c2a249b9ddb262091a8402745e5208ce15"
 class_hash = "0x7c94aef06e9d76934f52e2abaa8e990dd530472a0e554ef916266acb628c946"
 original_class_hash = "0x7c94aef06e9d76934f52e2abaa8e990dd530472a0e554ef916266acb628c946"
 base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
@@ -46,7 +46,7 @@ manifest_name = "flippyflop-Flip-6bd3ed9d"
 
 [[contracts]]
 kind = "DojoContract"
-address = "0x4a38587ad1b4677196d855f0ac994b401da32c379a728f51df2ea4d13f4a8bb"
+address = "0x165a91f138a5c5f5016a0afe3412b551559b3de4d89357282fe145e3e3c404b"
 class_hash = "0x62db69ace4b1324c34af5e31341df2251221ef75e1c586b7d1d242fbaa90df3"
 original_class_hash = "0x62db69ace4b1324c34af5e31341df2251221ef75e1c586b7d1d242fbaa90df3"
 base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
@@ -73,7 +73,7 @@ manifest_name = "flippyflop-actions-4407e5f5"
 
 [[contracts]]
 kind = "DojoContract"
-address = "0x2de9da447ebc5fb7f5a5fa81bfb33b897d163e28a5334c0f47914bb0e252f81"
+address = "0x7666151567b8dc0797c9f087df8d03c641ad811d800e08b9d70aba700be55f7"
 class_hash = "0x192db261dca4aa58ce197a2947f7b0af929b582fe317688f67c19941b41e1a3"
 original_class_hash = "0x192db261dca4aa58ce197a2947f7b0af929b582fe317688f67c19941b41e1a3"
 base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
