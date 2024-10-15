@@ -13,7 +13,7 @@ move = "./scripts/move.sh"
 
 [dependencies]
 dojo = { path = "/Users/nasr/Documents/development.nosync/dojo/crates/dojo-core" }
-origami_token = { git = "https://github.com/Larkooo/origami" }
+origami_token = { git = "https://github.com/Larkooo/origami", rev = "fec3209" }
 
 [[target.dojo]]
 
@@ -28,3 +28,4 @@ build-external-contracts = [
 
 [profile.dev]
 [profile.sepolia]
+[profile.katana]

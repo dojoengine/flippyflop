@@ -4,14 +4,6 @@ version = 1
 [[package]]
 name = "dojo"
 version = "1.0.0-alpha.4"
-dependencies = [
- "dojo_plugin",
-]
-
-[[package]]
-name = "dojo_plugin"
-version = "1.0.0-alpha.4"
-source = "git+https://github.com/dojoengine/dojo?rev=f15def33#f15def330c0d099e79351d11c197f63e8cc1ff36"
 
 [[package]]
 name = "flippyflop"
@@ -23,8 +15,8 @@ dependencies = [
 
 [[package]]
 name = "origami_token"
-version = "1.0.0-alpha.8"
-source = "git+https://github.com/Larkooo/origami#413f24299e80c0808f67efaae968ab09068cdebe"
+version = "1.0.0-alpha.16"
+source = "git+https://github.com/Larkooo/origami?rev=fec3209#fec3209bdfae6a4c9bf42ad6ea7c2312a3eedbca"
 dependencies = [
  "dojo",
 ]

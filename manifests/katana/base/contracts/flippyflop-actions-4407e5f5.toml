@@ -1,0 +1,15 @@
+kind = "DojoContract"
+class_hash = "0x6cbf3cb02d2aa9b11bcf55ecc34c0cc11d15c85ae1103d0b237369f692b513b"
+original_class_hash = "0x6cbf3cb02d2aa9b11bcf55ecc34c0cc11d15c85ae1103d0b237369f692b513b"
+base_class_hash = "0x0"
+abi = "manifests/katana/base/abis/contracts/flippyflop-actions-4407e5f5.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "flippyflop-actions"
+systems = [
+    "flip",
+    "flop",
+    "claim",
+]
+manifest_name = "flippyflop-actions-4407e5f5"
