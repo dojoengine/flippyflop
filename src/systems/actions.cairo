@@ -1,7 +1,7 @@
 // define the interface
 #[dojo::interface]
 trait IActions {
-    fn flip(ref world: IWorldDispatcher, x: u32, y: u32);
+    fn flip(ref world: IWorldDispatcher, x: u32, y: u32, team: u8);
     fn flop(ref world: IWorldDispatcher);
     fn claim(ref world: IWorldDispatcher, flipped_tiles: Array<(u32, u32)>);
 }
@@ -59,7 +59,7 @@ mod actions {
     #[abi(embed_v0)]
     impl ActionsImpl of IActions<ContractState> {
         // Humans can only flip unflipped tiles, but they can chose their tile to unflip.
-        fn flip(ref world: IWorldDispatcher, x: u32, y: u32) {
+        fn flip(ref world: IWorldDispatcher, x: u32, y: u32, team: u8) {
             assert!(x < X_BOUND, "X is out of bounds");
             assert!(y < Y_BOUND, "Y is out of bounds");
 
@@ -70,7 +70,7 @@ mod actions {
             assert!(tile == 0, "Tile already flipped");
 
             let powerup = get_random_powerup(hash);
-            let packed_data = pack_flipped_data(player.into(), powerup);
+            let packed_data = pack_flipped_data(player.into(), powerup, team);
 
             world
                 .set_entity_lobotomized(
@@ -93,7 +93,7 @@ mod actions {
             let tile = world.entity_lobotomized(TILE_MODEL_SELECTOR, entity_hash);
 
             // Check if the tile has a powerup
-            let (_, powerup) = unpack_flipped_data(tile);
+            let (_, powerup, _) = unpack_flipped_data(tile);
             if powerup == PowerUp::None {
                 world
                     .set_entity_lobotomized(
@@ -129,7 +129,7 @@ mod actions {
                 let tile = world.entity_lobotomized(TILE_MODEL_SELECTOR, entity_hash);
 
                 // Verify the tile belongs to the player
-                let (tile_owner, powerup) = unpack_flipped_data(tile);
+                let (tile_owner, powerup, _) = unpack_flipped_data(tile);
                 assert!(tile_owner == masked_player, "Tile does not belong to the player");
 
                 // Calculate tokens for this tile

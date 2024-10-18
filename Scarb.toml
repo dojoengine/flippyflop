@@ -12,8 +12,8 @@ spawn = "./scripts/spawn.sh"
 move = "./scripts/move.sh"
 
 [dependencies]
-dojo = { path = "/Users/nasr/Documents/development.nosync/dojo/crates/dojo-core" }
-origami_token = { git = "https://github.com/Larkooo/origami", rev = "fec3209" }
+dojo = { git = "https://github.com/Larkooo/dojo-lobotomized" }
+origami_token = { git = "https://github.com/Larkooo/origami" }
 
 [[target.dojo]]
 
