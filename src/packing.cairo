@@ -13,7 +13,7 @@ fn pack_flipped_data(address: felt252, powerup: PowerUp, team: u8) -> felt252 {
     let mut packed: u256 = 0_u256;
     packed = packed | (address_bits & ADDRESS_MASK);
     packed = packed | ((powerup_type * 0x1000_u256) & POWERUP_MASK);
-    packed = packed | (powerup_data & POWERUP_DATA_MASK);
+    packed = packed | ((powerup_data * 0x10_u256) & POWERUP_DATA_MASK);
     packed = packed | (team.into() & TILE_TYPE_MASK);
     packed.try_into().unwrap()
 }
