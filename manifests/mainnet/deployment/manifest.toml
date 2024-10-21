@@ -4,12 +4,13 @@ class_hash = "0x39bb4d21b2faebdf6c7db4eef6ba65bc652ecef957f1ad2fca0ab4c6d559e50"
 original_class_hash = "0x39bb4d21b2faebdf6c7db4eef6ba65bc652ecef957f1ad2fca0ab4c6d559e50"
 abi = "manifests/mainnet/deployment/abis/dojo-world.json"
 address = "0x69923899a79b42e2db65765501305ad03d5c04ceca2d991962db351fc414c23"
+transaction_hash = "0x7a789de490eafde611e6090aa5d321b34399c9d6f23e4bc56d3e91cf6484449"
 seed = "flippyflop-sepolia-256"
 manifest_name = "dojo-world"
 
 [world.metadata]
 profile_name = "mainnet"
-rpc_url = "https://api.cartridge.gg/x/starknet/sepolia"
+rpc_url = "https://api.cartridge.gg/x/starknet/mainnet"
 
 [base]
 kind = "Class"
@@ -21,9 +22,10 @@ manifest_name = "dojo-base"
 
 [[contracts]]
 kind = "DojoContract"
+address = "0x448108b89154c63aba89ebb6e6a4331a9a3c3ce3bbb16466bb5dc566b25a7f7"
 class_hash = "0x722b2e1264d639fbcd8063f2a886d97758c02a0d616a7eb81c22c519adcc8c0"
 original_class_hash = "0x722b2e1264d639fbcd8063f2a886d97758c02a0d616a7eb81c22c519adcc8c0"
-base_class_hash = "0x0"
+base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
 abi = "manifests/mainnet/deployment/abis/contracts/flippyflop-Flip-6bd3ed9d.json"
 reads = []
 writes = [
@@ -71,9 +73,10 @@ manifest_name = "flippyflop-actions-4407e5f5"
 
 [[contracts]]
 kind = "DojoContract"
+address = "0x745131489dfa9bb909b0c2ce106391751c5b065fcf0901b2d9eade7fd285093"
 class_hash = "0x36d96eb5c3aef927391a701ea9219357af7d964d1ec3c0c4519615d30bcb955"
 original_class_hash = "0x36d96eb5c3aef927391a701ea9219357af7d964d1ec3c0c4519615d30bcb955"
-base_class_hash = "0x0"
+base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
 abi = "manifests/mainnet/deployment/abis/contracts/flippyflop-game-23e1ad43.json"
 reads = []
 writes = ["flippyflop-Game"]
